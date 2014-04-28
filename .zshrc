@@ -41,7 +41,7 @@ ZSH_THEME="kolo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx perl vi-mode autojump go svn)
+plugins=(git osx vi-mode z go svn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,3 +56,9 @@ export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbi
 alias about='cd ~/Development/go/src/myprojects/about'
 alias ang='cd ~/Development/AngularJS/angular-phonecat'
 export CASE_SENSITIVE=true
+
+# The next line updates PATH for the Google Cloud SDK.
+#source /Users/semicarry/Downloads/google-cloud-sdk/path.bash.inc
+
+# The next line enables bash completion for gcloud.
+#source /Users/semicarry/Downloads/google-cloud-sdk/completion.bash.inc

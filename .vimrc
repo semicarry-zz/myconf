@@ -303,7 +303,7 @@ Bundle 'gmarik/vundle'
 "            Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+"Bundle 'FuzzyFinder'
 Bundle 'bufexplorer.zip'
 Bundle 'taglist.vim'
 Bundle 'Mark'
@@ -312,14 +312,14 @@ Bundle 'vim-scripts/matrix.vim'
 Bundle 'closetag.vim'
 Bundle 'The-NERD-Commenter'
 Bundle 'matchit.zip'
-Bundle 'YankRing.vim'
+"Bundle 'YankRing.vim'
 "Bundle 'EnhancedCommentify.vim'
 Bundle 'ShowMarks'
 Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
 "Bundle 'vim-scripts/snipmate-snippets'
 Bundle 'Shougo/neocomplete.vim'
-"Bundle 'mattn/emmet-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-scripts/asciidoc.vim'
@@ -334,8 +334,11 @@ Bundle 'Blackrush/vim-gocode'
 "Bundle 'majutsushi/tagbar'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
+Bundle 'tpope/vim-surround'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-repeat'
 
-let g:user_zen_settings = {
+let g:user_emmet_settings = {
             \ 'php' : {
             \ 'extends' : 'html',
             \ 'filters' : 'c',
@@ -346,6 +349,9 @@ let g:user_zen_settings = {
             \ 'haml' : {
             \ 'extends' : 'html',
             \ },
+            \ 'tpl' : {
+            \ 'extends' : 'html',
+            \ },
             \}
 "let g:user_zen_expandabbr_key = "<C-e>"
 
@@ -354,6 +360,7 @@ filetype off
 filetype plugin indent on
 filetype plugin on
 syntax on
+
 
 
 " jsbeautify
@@ -377,3 +384,8 @@ au BufNewFile,BufRead *.tpl set filetype=html
 "endfunction
 "autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
 "test
+
+"'tpope/vim-repeat'
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+let g:gitgutter_enabled = 0
+
