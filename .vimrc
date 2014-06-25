@@ -285,6 +285,7 @@ nmap <silent> <leader>d <Plug>DashSearch
 
  
 filetype off                   " required!
+filetype plugin indent off
 
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=$GOROOT/misc/vim
@@ -302,8 +303,9 @@ Bundle 'gmarik/vundle'
 "         Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "            Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
+Bundle 'tpope/vim-pathogen'
 Bundle 'L9'
-"Bundle 'FuzzyFinder'
+Bundle 'FuzzyFinder'
 Bundle 'bufexplorer.zip'
 Bundle 'taglist.vim'
 Bundle 'Mark'
@@ -325,9 +327,9 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-scripts/asciidoc.vim'
 Bundle "tomtom/tlib_vim"
 Bundle "golangtw/go.vim"
-"Bundle "benmills/vimux"
+Bundle "benmills/vimux"
 "Bundle 'rizzatti/funcoo.vim'
-"Bundle 'rizzatti/dash.vim'
+Bundle 'rizzatti/dash.vim'
 Bundle 'nsf/gocode'
 Bundle 'Blackrush/vim-gocode'
 "Bundle 'skammer/vim-css-color'
@@ -356,9 +358,7 @@ let g:user_emmet_settings = {
 "let g:user_zen_expandabbr_key = "<C-e>"
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
-filetype off
 filetype plugin indent on
-filetype plugin on
 syntax on
 
 
@@ -389,3 +389,11 @@ au BufNewFile,BufRead *.tpl set filetype=html
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 let g:gitgutter_enabled = 0
 
+
+" colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+Bundle 'altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+colorscheme solarized
