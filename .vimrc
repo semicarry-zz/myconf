@@ -225,6 +225,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType go setlocal omnifunc=gocomplete#Complete
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -237,7 +238,8 @@ let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w*.\?'
+"let g:neocomplete#sources#omni#input_patterns.go = '\h\w*.\?'
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
 
 " Plugin key-mappings.
 "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -321,12 +323,12 @@ Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
 "Bundle 'vim-scripts/snipmate-snippets'
 Bundle 'Shougo/neocomplete.vim'
+Bundle "Shougo/echodoc.vim"
 Bundle 'mattn/emmet-vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-scripts/asciidoc.vim'
 Bundle "tomtom/tlib_vim"
-Bundle "golangtw/go.vim"
 Bundle "benmills/vimux"
 "Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
@@ -339,7 +341,10 @@ Bundle 'einars/js-beautify'
 Bundle 'tpope/vim-surround'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-repeat'
+Bundle 'scrooloose/syntastic'
+Bundle 'jiangmiao/auto-pairs'
 
+execute pathogen#infect()
 let g:user_emmet_settings = {
             \ 'php' : {
             \ 'extends' : 'html',
@@ -358,10 +363,9 @@ let g:user_emmet_settings = {
 "let g:user_zen_expandabbr_key = "<C-e>"
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
+
 filetype plugin indent on
 syntax on
-
-
 
 " jsbeautify
 " for js
@@ -394,6 +398,6 @@ let g:gitgutter_enabled = 0
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 Bundle 'altercation/vim-colors-solarized'
-syntax enable
+"syntax enable
 set background=dark
 colorscheme solarized
