@@ -343,6 +343,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/syntastic'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'fatih/vim-go'
 
 execute pathogen#infect()
 let g:user_emmet_settings = {
@@ -357,6 +358,9 @@ let g:user_emmet_settings = {
             \ 'extends' : 'html',
             \ },
             \ 'tpl' : {
+            \ 'extends' : 'html',
+            \ },
+            \ 'gotmpl' : {
             \ 'extends' : 'html',
             \ },
             \}
@@ -376,6 +380,7 @@ autocmd FileType html noremap <buffer> ,rf :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> ,rf :call CSSBeautify()<cr>
 
 au BufNewFile,BufRead *.tpl set filetype=html
+au BufNewFile,BufRead *.gotmpl set filetype=html
 
 "vim 自动更新ctags
 "function! UPDATE_TAGS()
@@ -389,6 +394,24 @@ au BufNewFile,BufRead *.tpl set filetype=html
 "autocmd BufWrite *.cpp,*.h,*.c call UPDATE_TAGS()
 "test
 
+" vim-go 
+let g:go_fmt_autosave = 0
+let g:go_fmt_command = "gofmt"
+let g:go_bin_path = expand("$GOPATH/bin")
+let g:go_snippet_engine = "neosnippet"
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" vim-go 
 "'tpope/vim-repeat'
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 let g:gitgutter_enabled = 0
