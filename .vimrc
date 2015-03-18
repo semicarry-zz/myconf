@@ -11,7 +11,7 @@ set viminfo='20,\"50	" read/write a .viminfo file, don't store more
 			" than 50 lines of registers
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-set tag=~/Development/tags
+set tag=~/.TAGS
 "set number
 
 " Only do this part when compiled with support for autocommands
@@ -265,18 +265,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-
-"vimux setting
-map <Leader>vp :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
-map <Leader>vg :call VimuxRunCommand("clear; go run " . bufname("%"))<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vs :VimuxInterruptRunner<CR>
-map <Leader>vr :VimuxPromptCommand<CR>
-map <Leader>vv :call VimuxOpenPane()<CR>
-let VimuxUseNearestPane=0
-
 "dash
 nmap <silent> <leader>d <Plug>DashSearch
 "let g:dash_map = {
@@ -308,7 +296,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-pathogen'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'bufexplorer.zip'
 Bundle 'taglist.vim'
 Bundle 'Mark'
 Bundle 'The-NERD-tree'
@@ -323,27 +310,33 @@ Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
 "Bundle 'vim-scripts/snipmate-snippets'
 Bundle 'Shougo/neocomplete.vim'
-Bundle "Shougo/echodoc.vim"
 Bundle 'mattn/emmet-vim'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'vim-scripts/asciidoc.vim'
 Bundle "tomtom/tlib_vim"
-Bundle "benmills/vimux"
-"Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-Bundle 'nsf/gocode'
-Bundle 'Blackrush/vim-gocode'
-"Bundle 'skammer/vim-css-color'
-"Bundle 'majutsushi/tagbar'
 Bundle 'maksimr/vim-jsbeautify'
-Bundle 'einars/js-beautify'
 Bundle 'tpope/vim-surround'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/syntastic'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'fatih/vim-go'
+
+Bundle "benmills/vimux"
+"vimux setting
+map <Leader>vp :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
+map <Leader>vg :call VimuxRunCommand("clear; go run " . bufname("%"))<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vs :VimuxInterruptRunner<CR>
+"map <Leader>vr :VimuxPromptCommand<CR>
+"map <Leader>vv :call VimuxOpenPane()<CR>
+let VimuxUseNearestPane=0
+
 
 execute pathogen#infect()
 let g:user_emmet_settings = {
@@ -378,6 +371,7 @@ autocmd FileType javascript noremap <buffer>  ,rf :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> ,rf :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> ,rf :call CSSBeautify()<cr>
+autocmd FileType json noremap <buffer> ,rf :call JsonBeautify()<cr>
 
 au BufNewFile,BufRead *.tpl set filetype=html
 au BufNewFile,BufRead *.gotmpl set filetype=html
@@ -385,7 +379,7 @@ au BufNewFile,BufRead *.gotmpl set filetype=html
 "vim 自动更新ctags
 "function! UPDATE_TAGS()
   "let _f_ = expand("%:p")
-  "let _cmd_ =  '"ctags -a -f /Users/semicarry/Development/tags --c++-kinds=+p --fields=+iaS --extra=+q " '  . '"' . _f_ . '"'
+  "let _cmd_ =  '"ctags -a -f ~/.TAGS --c++-kinds=+p --fields=+iaS --extra=+q " '  . '"' . _f_ . '"'
   "let _resp = system(_cmd_)
   "unlet _cmd_
   "unlet _f_
@@ -395,8 +389,8 @@ au BufNewFile,BufRead *.gotmpl set filetype=html
 "test
 
 " vim-go 
-let g:go_fmt_autosave = 0
-let g:go_fmt_command = "gofmt"
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
 let g:go_bin_path = expand("$GOPATH/bin")
 let g:go_snippet_engine = "neosnippet"
 au FileType go nmap <Leader>i <Plug>(go-info)
