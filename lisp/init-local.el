@@ -1,7 +1,9 @@
 ;;; locale.el --- Summary
+;;; Commentary:
+;;; Code:
 ;; (require 'init-w3m)
 (require 'init-gnus)
-;;(require 'init-go)
+(require 'init-go)
 (require 'init-evil)
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -16,12 +18,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; font set for gui                                      ;;
-;; (set-face-attribute                                      ;;
-;;  'default nil :font "Monaco 15")                         ;;
-;; (dolist (character '(han kana symbol cjk-misc bopomofo)) ;;
-;;   (set-fontset-font (frame-parameter nil 'font)          ;;
-;;      character                                           ;;
-;;   (font-spec :family "魏碑-简" :size 15)))          ;
+(set-face-attribute                                      ;;
+ 'default nil :font "Monaco 15")                         ;;
+(dolist (character '(han kana symbol cjk-misc bopomofo)) ;;
+  (set-fontset-font (frame-parameter nil 'font)          ;;
+                    character                                           ;;
+                    (font-spec :family "魏碑-简" :size 15)))            ;;
 ;; (font-spec :family "Microsoft YaHei" :size 15))) ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (osx-clipboard-mode +1)
@@ -36,31 +38,15 @@
   (comment-or-uncomment-region beg end arg))
 
 
-;; go lang conf
-;;(require 'go-eldoc) ;; Don't need to require, if you install by package.el
-(add-hook 'go-mode-hook 'go-eldoc-setup)
-(set-face-attribute 'eldoc-highlight-function-argument nil
-                    :underline t :foreground "green"
-                    :weight 'bold)
-
-;; (add-hook 'go-mode-hook
-;;           (lambda ()
-;;             (setq indent-tabs-mode nil)
-;;             (setq tab-width 4)
-;;             (local-set-key (kbd "M-.") #'godef-jump)))
-
 (global-set-key (kbd "C-c C-c") 'my-comment-or-uncomment-region)
 
-;; go-flymak
-;;(add-to-list 'load-path "/Users/semicarry/Development/go/src/github.com/dougm/goflymake")
-;;(require 'go-flymake)
-
-;; go-flycheck
-;;(add-to-list 'load-path "/Users/semicarry/Development/go/src/github.com/dougm/goflymake")
-;;(require 'go-flycheck)
+;; speedbar
+(require 'speedbar)
+(global-set-key (kbd "<f9>") 'speedbar-get-focus)
 
 ;; all backups goto ~/.backups instead in the current directory
 ;; (setq backup-directory-alist (quote (("." . "~/.backups_emacs"))))
+(defconst emacs-tmp-dir (format "%s" "/Users/semicarry/.backups_emacs/"))
 (setq backup-directory-alist
     `((".*" . , emacs-tmp-dir)))
 (setq auto-save-file-name-transforms
