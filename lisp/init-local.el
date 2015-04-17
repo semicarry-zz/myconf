@@ -44,15 +44,5 @@
 (require 'speedbar)
 (global-set-key (kbd "<f9>") 'speedbar-get-focus)
 
-;; all backups goto ~/.backups instead in the current directory
-;; (setq backup-directory-alist (quote (("." . "~/.backups_emacs"))))
-(defconst emacs-tmp-dir (format "%s" "/Users/semicarry/.backups_emacs/"))
-(setq backup-directory-alist
-    `((".*" . , emacs-tmp-dir)))
-(setq auto-save-file-name-transforms
-    `((".*" , emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix
-    emacs-tmp-dir)
-
 (provide 'init-local)
 ;;; init-local ends here
