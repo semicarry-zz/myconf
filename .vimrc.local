@@ -1,0 +1,31 @@
+"" golang highlight{
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_build_constraints = 1
+""}
+
+set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+let g:airline_powerline_fonts=1
+"" indent_guides {
+    "if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+        let g:indent_guides_start_level = 5
+        "let g:indent_guides_guide_size = 1
+        let g:indent_guides_enable_on_vim_startup = 1
+        "let g:indent_guides_auto_colors = 0
+        "hi IndentGuidesOdd  NONE
+        "hi IndentGuidesEven NONE
+        hi SpecialKey NONE
+        "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  NONE
+        "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven NONE
+    "endif
+    ""}
+
+"" hotkeys {
+    nnoremap <Leader>h :nohl<CR>
+    map <Leader>nu :set nu!<CR>
+    map <F5> <Leader>cs
+    map <F6> <Leader>cu
+    map <F8> <Esc>:qa!<CR>
+""}
