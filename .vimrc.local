@@ -1,16 +1,27 @@
-"" golang highlight{
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+  set fileencodings=ucs-bom,utf-8,chinese
+   "set fileencodings=ucs-bom,gb18030,utf-8,chinese
+endif
+set clipboard="
+set mouse=v
+set wrap
+set expandtab
+set tabstop=4
+set softtabstop=4
+
+"" youcompleteme {
+    " 在注释输入中也能补全
+    let g:ycm_complete_in_comments = 1
+    " 在字符串输入中也能补全
+    let g:ycm_complete_in_strings = 1
+    " 注释和字符串中的文字也会被收入补全
+    let g:ycm_collect_identifiers_from_comments_and_strings = 1
 ""}
 
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-let g:airline_powerline_fonts=1
 "" indent_guides {
     "if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
-        let g:indent_guides_start_level = 5
+        let g:indent_guides_start_level = 9
         "let g:indent_guides_guide_size = 1
         let g:indent_guides_enable_on_vim_startup = 1
         "let g:indent_guides_auto_colors = 0
@@ -25,7 +36,30 @@ let g:airline_powerline_fonts=1
 "" hotkeys {
     nnoremap <Leader>h :nohl<CR>
     map <Leader>nu :set nu!<CR>
+    "map <F3> <Esc>:bp<CR>
+    "map <F4> <Esc>:bn<CR>
     map <F5> <Leader>cs
     map <F6> <Leader>cu
+    map <F7> <Esc>:bd<CR>
     map <F8> <Esc>:qa!<CR>
+    map <F9> <Leader>tt<CR>
+    map <F10> :buffers<CR>:buffer<Space>
+""}
+
+"" buffers {
+    nnoremap <Leader>bd :bd<CR>
+    nnoremap <Leader>l :ls<CR>
+    nnoremap <Leader>b :bp<CR>
+    nnoremap <Leader>f :bn<CR>
+    nnoremap <Leader>g :e#<CR>
+    nnoremap <Leader>1 :1b<CR>
+    nnoremap <Leader>2 :2b<CR>
+    nnoremap <Leader>3 :3b<CR>
+    nnoremap <Leader>4 :4b<CR>
+    nnoremap <Leader>5 :5b<CR>
+    nnoremap <Leader>6 :6b<CR>
+    nnoremap <Leader>7 :7b<CR>
+    nnoremap <Leader>8 :8b<CR>
+    nnoremap <Leader>9 :9b<CR>
+    nnoremap <Leader>0 :10b<CR>
 ""}
